@@ -12,7 +12,7 @@ def create_app():
     @app.route('/greet', methods=['POST'])
     def greet():
         name = request.form.get('name', 'Friend')
-        message = f"Hello, {name}! Welcome to Flask!"
+        message = f"Hi, {name}! Welcome to Flask!"
         return render_template('index.html', greeting=message)
 
     @app.route('/api/health', methods=['GET'])
