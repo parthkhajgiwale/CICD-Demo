@@ -109,18 +109,19 @@
         <h1>🚀 Welcome to Flask!</h1>
         <p class="subtitle">A simple web app to get you started</p>
 
-        {% if greeting %}
+        {% if sum %}
         <div class="greeting show">
-            <strong>{{ greeting }}</strong>
+            <strong>{{ sum }}</strong>
         </div>
         {% endif %}
 
-        <form method="POST" action="/greet">
+        <form method="POST" action="/add">
             <div class="form-group">
-                <label for="name">Enter your name:</label>
-                <input type="text" id="name" name="name" placeholder="Your name here..." required>
+                <label for="name">Enter your numbers:</label>
+                <input type="text" id="num1" name="num1" placeholder="Number 1:" required>
+		<input type="text" id="num2" name="num2" placeholder="Number 2:" required>
             </div>
-            <button type="submit">Say Hello!</button>
+            <button type="submit">Calculate</button>
         </form>
     </div>
 </body>

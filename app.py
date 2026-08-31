@@ -9,11 +9,12 @@ def create_app():
     def home():
         return render_template('index.html')
 
-    @app.route('/greet', methods=['POST'])
-    def greet():
-        name = request.form.get('name', 'Friend')
-        message = f"Hi, {name}! Welcome to Flask!"
-        return render_template('index.html', greeting=message)
+    @app.route('/add', methods=['POST'])
+    def add():
+        num1 = int(request.form.get('num1'))
+        num2 = int(request.form.get('num2'))
+        addition = num1 + num2
+        return render_template('index.html', sum=addition)
 
     @app.route('/api/health', methods=['GET'])
     def health():

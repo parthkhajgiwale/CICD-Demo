@@ -30,24 +30,18 @@ class TestHome:
         assert b'Welcome to Flask' in response.data
 
 
-class TestGreetEndpoint:
-    """Tests for the greet endpoint"""
+class TestAddEndpoint:
+    """Tests for the add endpoint"""
     
-    def test_greet_with_name(self, client):
-        """Test greeting with a name provided"""
-        response = client.post('/greet', data={'name': 'Alice'})
+    def test_add_with_values(self, client):
+        """Test add with a value provided"""
+        response = client.post('/add', data={'num1': 1, 'num2':3})
         assert response.status_code == 200
-        assert b'Hi, Alice' in response.data
+        assert b'4' in response.data
     
-    def test_greet_without_name(self, client):
-        """Test greeting with default name"""
-        response = client.post('/greet', data={})
-        assert response.status_code == 200
-        assert b'Hi, Friend' in response.data
-    
-    def test_greet_post_only(self, client):
+    def test_add_post_only(self, client):
         """Test that GET request to greet is not allowed"""
-        response = client.get('/greet')
+        response = client.get('/add')
         assert response.status_code == 405  # Method Not Allowed
 
 
