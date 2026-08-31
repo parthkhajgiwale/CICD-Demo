@@ -43,7 +43,7 @@ class TestGreetEndpoint:
         """Test greeting with default name"""
         response = client.post('/greet', data={})
         assert response.status_code == 200
-        assert b'Hello, Friend' in response.data
+        assert b'Hi, Friend' in response.data
     
     def test_greet_post_only(self, client):
         """Test that GET request to greet is not allowed"""
