@@ -37,7 +37,7 @@ class TestGreetEndpoint:
         """Test greeting with a name provided"""
         response = client.post('/greet', data={'name': 'Alice'})
         assert response.status_code == 200
-        assert b'Hello, Alice' in response.data
+        assert b'Hi, Alice' in response.data
     
     def test_greet_without_name(self, client):
         """Test greeting with default name"""
